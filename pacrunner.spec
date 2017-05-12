@@ -6,18 +6,18 @@
 Summary:	PACrunner - Proxy configuration daemon
 Summary(pl.UTF-8):	PACrunner - demon do konfiguracji proxy
 Name:		pacrunner
-Version:	0.10
+Version:	0.11
 Release:	1
 License:	GPL v2
 Group:		Applications/Networking
 Source0:	https://www.kernel.org/pub/linux/network/connman/%{name}-%{version}.tar.xz
-# Source0-md5:	3d3bed8d2416d8ff6758c33d904f00aa
+# Source0-md5:	e6bcb6a2b26481a34d74357913b0ad71
 # pacrunner.org is dead
 URL:		http://www.ohloh.net/p/pacrunner
 BuildRequires:	curl-devel >= 7.16
 BuildRequires:	dbus-devel >= 1.2
 BuildRequires:	glib2-devel >= 1:2.16
-%{?with_mozjs:BuildRequires:	js185-devel}
+%{?with_mozjs:BuildRequires:	mozjs38-devel >= 38}
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
 %{?with_v8:BuildRequires:	v8-devel}
