@@ -1,27 +1,23 @@
 #
 # Conditional build:
-%bcond_with	mozjs		# use Mozilla JavaScript
-%bcond_with	v8		# use Chrome V8 JavaScript
 %bcond_with	libproxy	# build libproxy compatible library
 #
 Summary:	PACrunner - Proxy configuration daemon
 Summary(pl.UTF-8):	PACrunner - demon do konfiguracji proxy
 Name:		pacrunner
-Version:	0.15
+Version:	0.16
 Release:	1
 License:	GPL v2
 Group:		Applications/Networking
 Source0:	https://www.kernel.org/pub/linux/network/connman/%{name}-%{version}.tar.xz
-# Source0-md5:	bca20e5b7196b4351dc7b0cb30b00974
+# Source0-md5:	31db230b61cf9520c53d4c416b505716
 # pacrunner.org is dead
 URL:		http://www.ohloh.net/p/pacrunner
 BuildRequires:	curl-devel >= 7.16
 BuildRequires:	dbus-devel >= 1.2
 BuildRequires:	glib2-devel >= 1:2.16
-%{?with_mozjs:BuildRequires:	mozjs38-devel >= 38}
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
-%{?with_v8:BuildRequires:	v8-devel}
 BuildRequires:	xz
 Requires:	curl-libs >= 7.16
 Requires:	dbus >= 1.2
@@ -70,9 +66,7 @@ Plik nagłówkowy biblioteki PACrunnera libproxy.
 	--disable-silent-rules \
 	--enable-curl \
 	--enable-duktape \
-	%{?with_libproxy:--enable-libproxy} \
-	%{?with_mozjs:--enable-mozjs} \
-	%{?with_v8:--enable-v8}
+	%{?with_libproxy:--enable-libproxy}
 %{__make}
 
 %install
